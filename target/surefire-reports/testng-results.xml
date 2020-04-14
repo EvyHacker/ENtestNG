@@ -2,7 +2,7 @@
 <testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Regression" duration-ms="32965" started-at="2020-04-14T16:30:38 EDT" finished-at="2020-04-14T16:31:11 EDT">
+  <suite name="Regression" duration-ms="32318" started-at="2020-04-14T16:49:50 EDT" finished-at="2020-04-14T16:50:23 EDT">
     <groups>
       <group name="donations">
         <method signature="IATS.IATSACHRecurPaymenttypelogic()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="IATSACHRecurPaymenttypelogic" class="com.fnoor.FundraisingTest.IATS"/>
@@ -11,13 +11,13 @@
         <method signature="IATS.iatsSingle()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="iatsSingle" class="com.fnoor.FundraisingTest.IATS"/>
       </group> <!-- donations -->
     </groups>
-    <test name="Donations" duration-ms="32965" started-at="2020-04-14T16:30:38 EDT" finished-at="2020-04-14T16:31:11 EDT">
+    <test name="Donations" duration-ms="32318" started-at="2020-04-14T16:49:50 EDT" finished-at="2020-04-14T16:50:23 EDT">
       <class name="com.fnoor.FundraisingTest.IATS">
-        <test-method status="PASS" signature="IATSACHRecurPaymenttypelogic()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="IATSACHRecurPaymenttypelogic" duration-ms="11227" started-at="2020-04-14T16:30:38 EDT" finished-at="2020-04-14T16:30:50 EDT">
+        <test-method status="PASS" signature="IATSACHRecurPaymenttypelogic()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="IATSACHRecurPaymenttypelogic" duration-ms="10772" started-at="2020-04-14T16:49:51 EDT" finished-at="2020-04-14T16:50:01 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- IATSACHRecurPaymenttypelogic -->
-        <test-method status="PASS" signature="takeSnapShot(org.testng.ITestResult)[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="takeSnapShot" is-config="true" duration-ms="2" started-at="2020-04-14T16:30:50 EDT" finished-at="2020-04-14T16:30:50 EDT">
+        <test-method status="PASS" signature="takeSnapShot(org.testng.ITestResult)[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="takeSnapShot" is-config="true" duration-ms="3" started-at="2020-04-14T16:50:01 EDT" finished-at="2020-04-14T16:50:01 EDT">
           <params>
             <param index="0">
               <value>
@@ -28,11 +28,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- takeSnapShot -->
-        <test-method status="PASS" signature="IATSACHRecurring()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="IATSACHRecurring" duration-ms="6970" started-at="2020-04-14T16:30:50 EDT" finished-at="2020-04-14T16:30:57 EDT">
+        <test-method status="PASS" signature="IATSACHRecurring()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="IATSACHRecurring" duration-ms="6900" started-at="2020-04-14T16:50:01 EDT" finished-at="2020-04-14T16:50:08 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- IATSACHRecurring -->
-        <test-method status="PASS" signature="takeSnapShot(org.testng.ITestResult)[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="takeSnapShot" is-config="true" duration-ms="0" started-at="2020-04-14T16:30:57 EDT" finished-at="2020-04-14T16:30:57 EDT">
+        <test-method status="PASS" signature="takeSnapShot(org.testng.ITestResult)[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="takeSnapShot" is-config="true" duration-ms="1" started-at="2020-04-14T16:50:08 EDT" finished-at="2020-04-14T16:50:08 EDT">
           <params>
             <param index="0">
               <value>
@@ -43,11 +43,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- takeSnapShot -->
-        <test-method status="PASS" signature="IATSRecurring()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="IATSRecurring" duration-ms="7214" started-at="2020-04-14T16:30:57 EDT" finished-at="2020-04-14T16:31:04 EDT">
+        <test-method status="PASS" signature="IATSRecurring()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="IATSRecurring" duration-ms="7112" started-at="2020-04-14T16:50:08 EDT" finished-at="2020-04-14T16:50:15 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- IATSRecurring -->
-        <test-method status="PASS" signature="takeSnapShot(org.testng.ITestResult)[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="takeSnapShot" is-config="true" duration-ms="0" started-at="2020-04-14T16:31:04 EDT" finished-at="2020-04-14T16:31:04 EDT">
+        <test-method status="PASS" signature="takeSnapShot(org.testng.ITestResult)[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="takeSnapShot" is-config="true" duration-ms="0" started-at="2020-04-14T16:50:15 EDT" finished-at="2020-04-14T16:50:15 EDT">
           <params>
             <param index="0">
               <value>
@@ -58,11 +58,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- takeSnapShot -->
-        <test-method status="PASS" signature="iatsSingle()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="iatsSingle" duration-ms="7415" started-at="2020-04-14T16:31:04 EDT" finished-at="2020-04-14T16:31:11 EDT">
+        <test-method status="PASS" signature="iatsSingle()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="iatsSingle" duration-ms="7409" started-at="2020-04-14T16:50:15 EDT" finished-at="2020-04-14T16:50:23 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- iatsSingle -->
-        <test-method status="PASS" signature="takeSnapShot(org.testng.ITestResult)[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="takeSnapShot" is-config="true" duration-ms="1" started-at="2020-04-14T16:31:11 EDT" finished-at="2020-04-14T16:31:11 EDT">
+        <test-method status="PASS" signature="takeSnapShot(org.testng.ITestResult)[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="takeSnapShot" is-config="true" duration-ms="0" started-at="2020-04-14T16:50:23 EDT" finished-at="2020-04-14T16:50:23 EDT">
           <params>
             <param index="0">
               <value>
@@ -73,7 +73,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- takeSnapShot -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="tearDown" is-config="true" duration-ms="96" started-at="2020-04-14T16:31:11 EDT" finished-at="2020-04-14T16:31:11 EDT">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.fnoor.FundraisingTest.IATS@6e2aa843]" name="tearDown" is-config="true" duration-ms="86" started-at="2020-04-14T16:50:23 EDT" finished-at="2020-04-14T16:50:23 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

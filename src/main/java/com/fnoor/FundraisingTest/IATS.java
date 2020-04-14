@@ -17,28 +17,29 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+import java.util.Date;
 
 
 public class IATS {
 
-   // static WebDriver driver;
+    // static WebDriver driver;
     static FundraisingPageDriver page = new FundraisingPageDriver();
     static WebDriver driver = page.driverSettings();
-    private static  String FUNDRAISING_TEST;
+    private static String FUNDRAISING_TEST;
     //static PageFields fields;
     static PageFields fields = PageFactory.initElements(driver, PageFields.class);
-
+  
 //
 //    @Inject
 //    static String testId;
 
-@AfterTest(alwaysRun = true)
-public void tearDown() {
-    driver.quit();
-}
+    @AfterTest(alwaysRun = true)
+    public void tearDown() {
+        driver.quit();
+    }
 
 
     @Test(groups = {"donations"})
@@ -74,7 +75,7 @@ public void tearDown() {
 
         fields.setCCName("Unit Tester");
         fields.setCCNUmber("4222222222222220");
-        fields.setCCExpiry(new CharSequence[] {"12", "2020"});
+        fields.setCCExpiry(new CharSequence[]{"12", "2020"});
         fields.setCCV("123");
 
         fields.submit();
@@ -92,7 +93,7 @@ public void tearDown() {
         Assert.assertTrue("Donation type is incorrect/not present", bodytext.contains("CREDIT_SINGLE"));
         Assert.assertTrue("CC type is incorrect/ not present", bodytext.contains("VISA"));
 
-        page.getSupporterByEmail(FUNDRAISING_TEST="iatsSingle", fields);
+        page.getSupporterByEmail(FUNDRAISING_TEST = "iatsSingle", fields);
     }
 
     @Test(groups = {"donations"})
@@ -126,7 +127,7 @@ public void tearDown() {
 
         fields.setCCName("Unit Tester");
         fields.setCCNUmber("4222222222222220");
-        fields.setCCExpiry(new CharSequence[] {"12", "2020"});
+        fields.setCCExpiry(new CharSequence[]{"12", "2020"});
         fields.setCCV("123");
 
         fields.submit();
@@ -144,7 +145,7 @@ public void tearDown() {
         Assert.assertTrue("Donation type is incorrect/not present", bodytext.contains("CREDIT_RECURRING"));
         Assert.assertTrue("CC type is incorrect/ not present", bodytext.contains("VISA"));
 
-        page.getSupporterByEmail(FUNDRAISING_TEST="IATSRecurring", fields);
+        page.getSupporterByEmail(FUNDRAISING_TEST = "IATSRecurring", fields);
     }
 
     @Test(groups = {"donations"})
@@ -199,11 +200,11 @@ public void tearDown() {
         Assert.assertTrue("Donation type is incorrect/not present", bodytext.contains("BANK_RECURRING"));
         Assert.assertTrue("CC type is incorrect/ not present", bodytext.contains("ACHEFT"));
 
-        page.getSupporterByEmail(FUNDRAISING_TEST="IATSACHRecurring", fields);
+        page.getSupporterByEmail(FUNDRAISING_TEST = "IATSACHRecurring", fields);
     }
 
     @Test(groups = {"donations"})
-   // @Parameters({"testId"})
+    // @Parameters({"testId"})
     public static void IATSACHRecurPaymenttypelogic() throws InterruptedException, IOException {
         page.ensAuthTest();
         driver.get("https://politicalnetworks.com/page/5725/donate/1?mode=DEMO");
@@ -227,7 +228,7 @@ public void tearDown() {
         fields.selectPayCurrency("USD");
         fields.setCCName("Unit Tester");
         fields.setCCNUmber("4222222222222220");
-        fields.setCCExpiry(new CharSequence[] {"12", "2020"});
+        fields.setCCExpiry(new CharSequence[]{"12", "2020"});
         fields.setCCV("123");
 
         fields.submit();
@@ -264,26 +265,20 @@ public void tearDown() {
         Assert.assertTrue("Currency is incorrect/not present", bodytext.contains("USD"));
         Assert.assertTrue("Donation type is incorrect/not present", bodytext.contains("BANK_RECURRING"));
         Assert.assertTrue("CC type is incorrect/ not present", bodytext.contains("ACHEFT"));
-        page.getSupporterByEmail(FUNDRAISING_TEST="IATSACHRecurPaymenttypelogic", fields);
+        page.getSupporterByEmail(FUNDRAISING_TEST = "IATSACHRecurPaymenttypelogic", fields);
     }
 
     @AfterMethod
-    public static void takeSnapShot(ITestResult result) throws Exception{
-
-        if(ITestResult.FAILURE==result.getStatus()){
-
-            //Convert web driver object to TakeScreenshot
-            TakesScreenshot scrShot =((TakesScreenshot)driver);
-
-            //Call getScreenshotAs method to create image file
-            File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-
-            //Move image file to new destination
-            File DestFile=new File("./ScreenShots/"+result.getName()+".png");
-            //Copy file at destination
-            FileUtils.copyFile(SrcFile, DestFile);
-            System.out.println("Screenshot taken");
-        }
-
+    public static String getScreenshot(WebDriver driver, String screenshotName) throws Exception {
+        //below line is just to append the date format with the screenshot name to avoid duplicate names
+        String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        //after execution, you could see a folder "FailedTestsScreenshots" under src folder
+        String destination = System.getProperty("user.dir") + "/FailedTestsScreenshots/" + screenshotName + dateName + ".png";
+        File finalDestination = new File(destination);
+        FileUtils.copyFile(source, finalDestination);
+        //Returns the captured file path
+        return destination;
     }
 }
