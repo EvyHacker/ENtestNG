@@ -2,13 +2,20 @@ package com.fnoor.FundraisingTest;
 
 import com.fnoor.FundraisingPageDriver;
 import com.fnoor.PageFields;
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -258,5 +265,25 @@ public void tearDown() {
         Assert.assertTrue("Donation type is incorrect/not present", bodytext.contains("BANK_RECURRING"));
         Assert.assertTrue("CC type is incorrect/ not present", bodytext.contains("ACHEFT"));
         page.getSupporterByEmail(FUNDRAISING_TEST="IATSACHRecurPaymenttypelogic", fields);
+    }
+
+    @AfterMethod
+    public static void takeSnapShot(ITestResult result) throws Exception{
+
+        if(ITestResult.FAILURE==result.getStatus()){
+
+            //Convert web driver object to TakeScreenshot
+            TakesScreenshot scrShot =((TakesScreenshot)driver);
+
+            //Call getScreenshotAs method to create image file
+            File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+
+            //Move image file to new destination
+            File DestFile=new File("./ScreenShots/"+result.getName()+".png");
+            //Copy file at destination
+            FileUtils.copyFile(SrcFile, DestFile);
+            System.out.println("Screenshot taken");
+        }
+
     }
 }
