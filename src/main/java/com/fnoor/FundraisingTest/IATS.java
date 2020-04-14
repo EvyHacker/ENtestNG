@@ -209,7 +209,7 @@ public class IATS {
         page.ensAuthTest();
         driver.get("https://politicalnetworks.com/page/5725/donate/1?mode=DEMO");
         fields.waitForPageLoad();
-        fields.selectTitle("Ms");
+       // fields.selectTitle("Ms");
         fields.setFirstname("Unit");
         fields.setLastname("Tester");
 //		Call the createEmail function
