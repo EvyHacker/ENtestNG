@@ -181,8 +181,8 @@ public class FundraisingPageDriver {
         driver = new ChromeDriver(options);
         //driver = new FirefoxDriver();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
         return driver;
     }

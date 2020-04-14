@@ -48,6 +48,7 @@ public class IATS {
 
         driver.get("https://politicalnetworks.com/page/841/donate/1?mode=DEMO");
         fields.waitForPageLoad();
+        Thread.sleep(4000);
         fields.selectDonationAmt("15");
         fields.selectTitle("Ms");
         fields.setFirstname("Unit");
@@ -101,6 +102,7 @@ public class IATS {
         page.ensAuthTest();
         driver.get("https://politicalnetworks.com/page/861/donate/1?mode=DEMO");
         fields.waitForPageLoad();
+        Thread.sleep(4000);
         fields.selectDonationAmt("15");
         fields.selectTitle("Ms");
         fields.setFirstname("Unit");
@@ -153,6 +155,7 @@ public class IATS {
         page.ensAuthTest();
         driver.get("https://politicalnetworks.com/page/5724/donate/1?mode=DEMO");
         fields.waitForPageLoad();
+        Thread.sleep(4000);
         fields.selectTitle("Ms");
         fields.setFirstname("Unit");
         fields.setLastname("Tester");
@@ -209,7 +212,8 @@ public class IATS {
         page.ensAuthTest();
         driver.get("https://politicalnetworks.com/page/5725/donate/1?mode=DEMO");
         fields.waitForPageLoad();
-       // fields.selectTitle("Ms");
+        Thread.sleep(4000);
+        fields.selectTitle("Ms");
         fields.setFirstname("Unit");
         fields.setLastname("Tester");
 //		Call the createEmail function
