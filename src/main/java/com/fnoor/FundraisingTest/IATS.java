@@ -268,19 +268,19 @@ public class IATS {
         page.getSupporterByEmail(FUNDRAISING_TEST = "IATSACHRecurPaymenttypelogic", fields);
     }
 
-    @AfterMethod
-    public static void getScreenshot(ITestResult result) throws Exception {
-        //below line is just to append the date format with the screenshot name to avoid duplicate names
-        String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        if (ITestResult.FAILURE == result.getStatus()) {
-            TakesScreenshot ts = (TakesScreenshot) driver;
-            File source = ts.getScreenshotAs(OutputType.FILE);
-            //after execution, you could see a folder "FailedTestsScreenshots" under src folder
-            String destination = System.getProperty("user.dir") + "/FailedTestsScreenshots/" + dateName + ".png";
-            File finalDestination = new File(destination);
-            FileUtils.copyFile(source, finalDestination);
-            //Returns the captured file path
-
-        }
-    }
+//    @AfterMethod
+//    public static void getScreenshot(ITestResult result) throws Exception {
+//        //below line is just to append the date format with the screenshot name to avoid duplicate names
+//        String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+//        if (ITestResult.FAILURE == result.getStatus()) {
+//            TakesScreenshot ts = (TakesScreenshot) driver;
+//            File source = ts.getScreenshotAs(OutputType.FILE);
+//            //after execution, you could see a folder "FailedTestsScreenshots" under src folder
+//            String destination = System.getProperty("user.dir") + "/FailedTestsScreenshots/" + dateName + ".png";
+//            File finalDestination = new File(destination);
+//            FileUtils.copyFile(source, finalDestination);
+//            //Returns the captured file path
+//
+//        }
+//    }
 }
