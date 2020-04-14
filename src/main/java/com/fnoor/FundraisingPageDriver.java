@@ -166,7 +166,7 @@ public class FundraisingPageDriver {
 //            driver = new FirefoxDriver();
 //        } else {
 
-        System.setProperty("webdriver.gecko.driver", "webdrivers/linux/geckodriver");
+        System.setProperty("webdriver.gecko.driver", "webdrivers/win/geckodriver");
         DesiredCapabilities capabilitiesChrome = DesiredCapabilities.chrome();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-gpu");
