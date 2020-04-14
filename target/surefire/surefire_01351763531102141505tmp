@@ -1,6 +1,0 @@
-#surefire_0
-#Tue Apr 14 18:32:27 EDT 2020
-user.dir=/Users/ievgeniiagaidarenko/EngagingNetworks/Automation/ENseleniumtest/ENtestNG
-surefire=linux chromedriver IATS
-localRepository=/Users/ievgeniiagaidarenko/.m2/repository
-basedir=/Users/ievgeniiagaidarenko/EngagingNetworks/Automation/ENseleniumtest/ENtestNG
