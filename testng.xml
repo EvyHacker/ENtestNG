@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Regression">
+    <parameter name="testId" value="" />
+    <!--    <listeners>-->
+<!--        <listener class-name="org.testng.reporters.JUnitReportReporter"/>-->
+<!--    </listeners>-->
+    <test name="Donations">
+        <groups>
+            <define name="donations">
+                <include name="include-test-one" />
+            </define>
+        </groups>
+        <classes>
+            <class name="com.fnoor.FundraisingTest.IATS" />
+        </classes>
+
+        <!--        <classes>-->
+        <!--            <class name="api.http.calls.ApiTest" />-->
+        <!--        </classes>-->
+    </test>
+</suite>

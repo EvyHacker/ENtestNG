@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Regression" duration-ms="32452" started-at="2020-04-14T15:48:28 EDT" finished-at="2020-04-14T15:49:00 EDT">
+    <groups>
+      <group name="donations">
+        <method signature="IATS.IATSACHRecurPaymenttypelogic()[pri:0, instance:com.fnoor.FundraisingTest.IATS@69ee81fc]" name="IATSACHRecurPaymenttypelogic" class="com.fnoor.FundraisingTest.IATS"/>
+        <method signature="IATS.IATSACHRecurring()[pri:0, instance:com.fnoor.FundraisingTest.IATS@69ee81fc]" name="IATSACHRecurring" class="com.fnoor.FundraisingTest.IATS"/>
+        <method signature="IATS.IATSRecurring()[pri:0, instance:com.fnoor.FundraisingTest.IATS@69ee81fc]" name="IATSRecurring" class="com.fnoor.FundraisingTest.IATS"/>
+        <method signature="IATS.iatsSingle()[pri:0, instance:com.fnoor.FundraisingTest.IATS@69ee81fc]" name="iatsSingle" class="com.fnoor.FundraisingTest.IATS"/>
+      </group> <!-- donations -->
+    </groups>
+    <test name="Donations" duration-ms="32452" started-at="2020-04-14T15:48:28 EDT" finished-at="2020-04-14T15:49:00 EDT">
+      <class name="com.fnoor.FundraisingTest.IATS">
+        <test-method status="PASS" signature="IATSACHRecurPaymenttypelogic()[pri:0, instance:com.fnoor.FundraisingTest.IATS@69ee81fc]" name="IATSACHRecurPaymenttypelogic" duration-ms="10701" started-at="2020-04-14T15:48:28 EDT" finished-at="2020-04-14T15:48:38 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IATSACHRecurPaymenttypelogic -->
+        <test-method status="PASS" signature="IATSACHRecurring()[pri:0, instance:com.fnoor.FundraisingTest.IATS@69ee81fc]" name="IATSACHRecurring" duration-ms="7101" started-at="2020-04-14T15:48:38 EDT" finished-at="2020-04-14T15:48:45 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IATSACHRecurring -->
+        <test-method status="PASS" signature="IATSRecurring()[pri:0, instance:com.fnoor.FundraisingTest.IATS@69ee81fc]" name="IATSRecurring" duration-ms="7029" started-at="2020-04-14T15:48:45 EDT" finished-at="2020-04-14T15:48:52 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IATSRecurring -->
+        <test-method status="PASS" signature="iatsSingle()[pri:0, instance:com.fnoor.FundraisingTest.IATS@69ee81fc]" name="iatsSingle" duration-ms="7493" started-at="2020-04-14T15:48:52 EDT" finished-at="2020-04-14T15:49:00 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iatsSingle -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.fnoor.FundraisingTest.IATS@69ee81fc]" name="tearDown" is-config="true" duration-ms="97" started-at="2020-04-14T15:49:00 EDT" finished-at="2020-04-14T15:49:00 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.fnoor.FundraisingTest.IATS -->
+    </test> <!-- Donations -->
+  </suite> <!-- Regression -->
+</testng-results>
