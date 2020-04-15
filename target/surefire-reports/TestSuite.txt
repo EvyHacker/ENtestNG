@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.419 sec - in TestSuite
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 22.521 sec <<< FAILURE! - in TestSuite
+iatsSingle(com.fnoor.FundraisingTest.IATS)  Time elapsed: 19.633 sec  <<< FAILURE!
+java.lang.AssertionError: Campaign ID not present
+	at com.fnoor.FundraisingTest.IATS.iatsSingle(IATS.java:112)
+

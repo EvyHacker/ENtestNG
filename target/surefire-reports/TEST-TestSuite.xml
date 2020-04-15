@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="14.419" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="22.521" tests="1" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib"/>
@@ -45,7 +45,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test -Dsurefire=linux chromedriver IATS"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test -Dsurefire"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -59,10 +59,149 @@
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="surefire" value="linux chromedriver IATS"/>
+    <property name="surefire" value="true"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="iatsSingle" classname="com.fnoor.FundraisingTest.IATS" time="11.946"/>
+  <testcase name="iatsSingle" classname="com.fnoor.FundraisingTest.IATS" time="19.633">
+    <failure message="Campaign ID not present" type="java.lang.AssertionError">java.lang.AssertionError: Campaign ID not present
+	at com.fnoor.FundraisingTest.IATS.iatsSingle(IATS.java:112)
+</failure>
+    <system-out><![CDATA[Im here
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 1
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 5
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 10
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 15
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 other
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 Mr
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 Mrs
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 Ms
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 Miss
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 Dr
+Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
+Id1 
+Id2 Prof
+Elelments: 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
+labelsPage2 null
+labelsPage3 
+URL: https://politicalnetworks.com/page/13152/donate/1
+Id01 [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: select]
+Id02 en__field_supporter_region
+Id03 supporter.region
+Id01 [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: select]
+Id02 en__field_supporter_country
+Id03 supporter.country
+Id01 [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: select]
+Id02 en__field_transaction_paymenttype
+Id03 transaction.paymenttype
+Id01 [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: select]
+Id02 en__field_transaction_paycurrency
+Id03 transaction.paycurrency
+Elelments01: 
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}) on port 21906
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+[1586973973.375][WARNING]: FromSockAddr failed on netmask
+Apr 15, 2020 2:06:15 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[1586973975.760][SEVERE]: Timed out receiving message from renderer: 0.100
+[1586973992.164][SEVERE]: Timed out receiving message from renderer: 0.100
+[1586973992.267][SEVERE]: Timed out receiving message from renderer: 0.100
+[1586973992.370][SEVERE]: Timed out receiving message from renderer: 0.100
+[1586973992.472][SEVERE]: Timed out receiving message from renderer: 0.100
+[1586973992.575][SEVERE]: Timed out receiving message from renderer: 0.100
+[1586973992.676][SEVERE]: Timed out receiving message from renderer: 0.100
+[1586973992.777][SEVERE]: Timed out receiving message from renderer: 0.100
+[1586973992.879][SEVERE]: Timed out receiving message from renderer: 0.100
+]]></system-err>
+  </testcase>
 </testsuite>
