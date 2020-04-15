@@ -44,7 +44,7 @@ public class IATS {
     public static void iatsSingle() throws InterruptedException, IOException {
 
 
-        driver.get("https://politicalnetworks.com/page/841/donate/1?mode=DEMO");
+        driver.get("https://politicalnetworks.com/page/13152/donate/1");
         fields.waitForPageLoad();
 
         List<WebElement> fieldsPage = driver.findElements(By.tagName("select"));
@@ -54,8 +54,8 @@ public class IATS {
             System.out.println("Id2 " + iframeT.getAttribute("name"));}
         Thread.sleep(4000);
         System.out.println("Elelments: ");
-        fields.selectDonationAmt("15");
-        fields.selectTitle("Ms");
+        //fields.selectDonationAmt("15");
+        //fields.selectTitle("Ms");
         fields.setFirstname("Unit");
         fields.setLastname("Tester");
 //		Call the createEmail function
@@ -64,6 +64,15 @@ public class IATS {
 
         fields.submit();
 
+        fields.waitForPageLoad();
+        Assert.assertTrue("Urls are not the same", driver.getCurrentUrl()
+                .equals("https://politicalnetworks.com/page/13152/donate/2"));
+        List<WebElement> fieldsPage2 = driver.findElements(By.tagName("select"));
+        for (WebElement iframeT : fieldsPage2) {
+            System.out.println("Id01 " + iframeT);
+            System.out.println("Id02 " + iframeT.getAttribute("id"));
+            System.out.println("Id03 " + iframeT.getAttribute("name"));}
+        System.out.println("Elelments01: ");
         fields.setAddress1("1 Hilltop");
         fields.setCity("Baltimore");
         fields.selectRegion("MD");
@@ -88,7 +97,7 @@ public class IATS {
 
 //		Assert that the payment was successful and the third page was reached
         String myurl = driver.getCurrentUrl();
-        Assert.assertTrue("Urls are not the same", myurl.equals("https://politicalnetworks.com/page/841/donate/3"));
+        Assert.assertTrue("Urls are not the same", myurl.equals("https://politicalnetworks.com/page/13152/donate/3"));
 
 //		Get the details from the third page and Verify the fields
         String bodytext = driver.findElement(By.tagName("body")).getText();
