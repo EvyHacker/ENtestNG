@@ -42,7 +42,7 @@ public class IATS {
 
     @Test(groups = {"donations"})
     public static void iatsSingle() throws InterruptedException, IOException {
-        page.ensAuthTest();
+
 
         driver.get("https://politicalnetworks.com/page/841/donate/1?mode=DEMO");
         fields.waitForPageLoad();
@@ -99,6 +99,7 @@ public class IATS {
         Assert.assertTrue("Donation type is incorrect/not present", bodytext.contains("CREDIT_SINGLE"));
         Assert.assertTrue("CC type is incorrect/ not present", bodytext.contains("VISA"));
 
+        page.ensAuthTest();
         page.getSupporterByEmail(FUNDRAISING_TEST = "iatsSingle", fields);
     }
 //
