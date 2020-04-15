@@ -44,7 +44,7 @@ public class IATS {
     public static void iatsSingle() throws InterruptedException, IOException {
 
 
-        driver.get("https://politicalnetworks.com/page/841/donate/1");
+        driver.get("https://politicalnetworks.com/page/841/donate/1?mode=DEMO");
         fields.waitForPageLoad();
         fields.selectDonationAmt("15");
         fields.selectTitle("Ms");
