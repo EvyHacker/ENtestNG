@@ -17,6 +17,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.*;
+import org.testng.reporters.XMLReporter;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

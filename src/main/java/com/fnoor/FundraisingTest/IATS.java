@@ -11,6 +11,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.reporters.XMLReporter;
 
 import java.io.File;
 import java.io.IOException;
