@@ -4,8 +4,20 @@
   <parameter name="testId" value=""/>
   <test thread-count="5" verbose="0" name="Donations(failed)">
     <classes>
+      <class name="com.fnoor.FundraisingTest.PAYFLOW">
+        <methods>
+          <include name="payflowProPayViaPaypal"/>
+          <include name="tearDown"/>
+          <include name="payflowProRecurring"/>
+          <include name="payflowProSingle"/>
+        </methods>
+      </class> <!-- com.fnoor.FundraisingTest.PAYFLOW -->
       <class name="com.fnoor.FundraisingTest.IATS">
         <methods>
+          <include name="getScreenshot"/>
+          <include name="IATSRecurring"/>
+          <include name="IATSACHRecurring"/>
+          <include name="IATSACHRecurPaymenttypelogic"/>
           <include name="iatsSingle"/>
           <include name="tearDown"/>
         </methods>

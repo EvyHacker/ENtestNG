@@ -1,8 +1,52 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 22.521 sec <<< FAILURE! - in TestSuite
-iatsSingle(com.fnoor.FundraisingTest.IATS)  Time elapsed: 19.633 sec  <<< FAILURE!
-java.lang.AssertionError: Campaign ID not present
-	at com.fnoor.FundraisingTest.IATS.iatsSingle(IATS.java:112)
+Tests run: 11, Failures: 5, Errors: 0, Skipped: 6, Time elapsed: 8.33 sec <<< FAILURE! - in TestSuite
+IATSACHRecurPaymenttypelogic(com.fnoor.FundraisingTest.IATS)  Time elapsed: 3.823 sec  <<< FAILURE!
+java.lang.AssertionError: Timeout waiting for Page Load Request to complete.
+	at com.fnoor.FundraisingTest.IATS.IATSACHRecurPaymenttypelogic(IATS.java:216)
+
+getScreenshot(com.fnoor.FundraisingTest.IATS)  Time elapsed: 3.832 sec  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+chrome not reachable
+  (Session info: chrome=81.0.4044.92)
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Ievgeniias-MBP.fios-router.home', ip: 'fe80:0:0:0:c90:c277:a4f7:2e65%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.Kgg5cZ}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63689}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]
+Session ID: e0a4aa7a9d4ceecd0dcbb3152bf9fee7
+	at com.fnoor.FundraisingTest.IATS.getScreenshot(IATS.java:283)
+
+payflowProPayViaPaypal(com.fnoor.FundraisingTest.PAYFLOW)  Time elapsed: 0.081 sec  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+chrome not reachable
+  (Session info: chrome=81.0.4044.92)
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Ievgeniias-MBP.fios-router.home', ip: 'fe80:0:0:0:c90:c277:a4f7:2e65%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.0OZx8C}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63701}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]
+Session ID: e2d85c46e8fdabb84308eddaf5e981f4
+	at com.fnoor.FundraisingTest.PAYFLOW.payflowProPayViaPaypal(PAYFLOW.java:161)
+
+payflowProRecurring(com.fnoor.FundraisingTest.PAYFLOW)  Time elapsed: 0.094 sec  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+chrome not reachable
+  (Session info: chrome=81.0.4044.92)
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Ievgeniias-MBP.fios-router.home', ip: 'fe80:0:0:0:c90:c277:a4f7:2e65%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.0OZx8C}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63701}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]
+Session ID: e2d85c46e8fdabb84308eddaf5e981f4
+	at com.fnoor.FundraisingTest.PAYFLOW.payflowProRecurring(PAYFLOW.java:105)
+
+payflowProSingle(com.fnoor.FundraisingTest.PAYFLOW)  Time elapsed: 0.084 sec  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+chrome not reachable
+  (Session info: chrome=81.0.4044.92)
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Ievgeniias-MBP.fios-router.home', ip: 'fe80:0:0:0:c90:c277:a4f7:2e65%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.0OZx8C}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63701}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]
+Session ID: e2d85c46e8fdabb84308eddaf5e981f4
+	at com.fnoor.FundraisingTest.PAYFLOW.payflowProSingle(PAYFLOW.java:48)
 

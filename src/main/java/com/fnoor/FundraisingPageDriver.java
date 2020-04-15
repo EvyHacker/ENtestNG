@@ -157,6 +157,30 @@ public class FundraisingPageDriver {
         driver.quit();
     }
 
+    @AfterTest(alwaysRun = true)
+    public static void getSupporterById(String testId, PageFields fields) throws IOException, InterruptedException {
+        System.out.println("In after class getSupporterById:");
+        HttpClient client = HttpClientBuilder.create().build();
+        supporterEmail = fields.createEmail(testId);
+        supporterTaxId = fields.getSupporterTaxID();
+
+        HttpGet get = new HttpGet(SERVICE_URL + "/supporter/" + supporterId + "/transactions/" + supporterTaxId);
+
+        System.out.println("url: " + get);
+        get.setHeader("Content-Type", "application/json");
+        get.setHeader("ens-auth-token", ens_auth_token);
+
+        HttpResponse response = client.execute(get);
+        int status = response.getStatusLine().getStatusCode();
+        if (status != HTTP_STATUS_OK) {
+            throw new IOException("Unable to authenticate. Received invalid http status=" + status);
+        }
+        String jsonResponse = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
+        System.out.println("RESPONSE as String(getSupporterById): " + jsonResponse);
+
+        System.out.println("Status getSupporterById: " + status);
+
+    }
 
     public WebDriver driverSettings() {
 
@@ -167,7 +191,7 @@ public class FundraisingPageDriver {
 //            driver = new FirefoxDriver();
 //        } else {
 
-        System.setProperty("webdriver.gecko.driver", "webdrivers/linux/geckodriver");
+        System.setProperty("webdriver.chrome.driver", "webdrivers/linux/chromedriver");
         DesiredCapabilities capabilitiesChrome = DesiredCapabilities.chrome();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-gpu");
@@ -179,8 +203,8 @@ public class FundraisingPageDriver {
         options.addArguments("--headless");
         capabilitiesChrome.setCapability(ChromeOptions.CAPABILITY, options);
         System.out.println("Im here");
-        //driver = new ChromeDriver(options);
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver(options);
+        //driver = new FirefoxDriver();
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);

@@ -29,6 +29,7 @@ public class PageFields {
     public static String ens_auth_token;
     public static String supporterEmail;
     public static String supporterId;
+    public static String supporterTaxId;
     public static String subjectETT;
 
     public static final String ENHome = "https://politicalnetworks.com/ea-account/index.jsp";
@@ -494,6 +495,24 @@ public class PageFields {
             }
     }
 
+    public void nextPayapl() {
+        try {
+            if (field_Paypal_Next.isDisplayed()) {
+                WebElement paypalNext = (new WebDriverWait(driver, 20))
+                        .until(ExpectedConditions.visibilityOf(field_Paypal_Next));
+                JavascriptExecutor executor = (JavascriptExecutor) driver;
+                executor.executeScript("arguments[0].click();", paypalNext);
+            }
+//            else {
+//                WebElement paypalLogin = (new WebDriverWait(driver, 20))
+//                        .until(ExpectedConditions.visibilityOf(field_Paypal_Login));
+//                JavascriptExecutor executor = (JavascriptExecutor) driver;
+//                executor.executeScript("arguments[0].click();", paypalLogin);
+//           }
+        } catch (Exception e) {
+        }
+    }
+
     public String getStripeTransactionDetails(){
         String transactionID = null;
         for (int i=0; i<1; i++){
@@ -504,6 +523,13 @@ public class PageFields {
     }
 
     /////////////////////////    SUPPORTER DETAILS     /////////////////////////////////
+
+    public String getSupporterTaxID() {
+
+        String txId = driver.findElement(By.xpath("//div[@class='txnID']")).getText();
+        supporterTaxId = txId.replace("TXN ID:- ", "");
+        return supporterTaxId;
+    }
 
     public void searchSupporter(String text, WebDriver driver) throws InterruptedException {
         field_DataReports.click();

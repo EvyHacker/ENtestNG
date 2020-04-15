@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="22.521" tests="1" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="8.33" tests="11" errors="0" skipped="6" failures="5">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib"/>
@@ -45,7 +45,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test -Dsurefire"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean -Dsurefire=PAYFLOW test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -59,149 +59,106 @@
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="surefire" value="true"/>
+    <property name="surefire" value="PAYFLOW"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="iatsSingle" classname="com.fnoor.FundraisingTest.IATS" time="19.633">
-    <failure message="Campaign ID not present" type="java.lang.AssertionError">java.lang.AssertionError: Campaign ID not present
-	at com.fnoor.FundraisingTest.IATS.iatsSingle(IATS.java:112)
+  <testcase name="IATSACHRecurPaymenttypelogic" classname="com.fnoor.FundraisingTest.IATS" time="3.823">
+    <failure message="Timeout waiting for Page Load Request to complete." type="java.lang.AssertionError">java.lang.AssertionError: Timeout waiting for Page Load Request to complete.
+	at com.fnoor.FundraisingTest.IATS.IATSACHRecurPaymenttypelogic(IATS.java:216)
 </failure>
     <system-out><![CDATA[Im here
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 1
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 5
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 10
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 15
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 other
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 Mr
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 Mrs
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 Ms
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 Miss
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 Dr
-Id [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: option]
-Id1 
-Id2 Prof
-Elelments: 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-labelsPage [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: div]
-labelsPage2 null
-labelsPage3 
-URL: https://politicalnetworks.com/page/13152/donate/1
-Id01 [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: select]
-Id02 en__field_supporter_region
-Id03 supporter.region
-Id01 [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: select]
-Id02 en__field_supporter_country
-Id03 supporter.country
-Id01 [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: select]
-Id02 en__field_transaction_paymenttype
-Id03 transaction.paymenttype
-Id01 [[ChromeDriver: chrome on ANY (2a1de902133ddda639d6e062fe904e4b)] -> tag name: select]
-Id02 en__field_transaction_paycurrency
-Id03 transaction.paycurrency
-Elelments01: 
+Im here
+RESPONSE as String: {"expires":3600000,"ens-auth-token":"25b36413-76fe-4925-bc2e-4a09635976d3"}
+ens-auth-token: 25b36413-76fe-4925-bc2e-4a09635976d3
 ]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}) on port 21906
+    <system-err><![CDATA[Starting ChromeDriver 81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}) on port 38643
 Only local connections are allowed.
 Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
-[1586973973.375][WARNING]: FromSockAddr failed on netmask
-Apr 15, 2020 2:06:15 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+Apr 15, 2020 5:34:14 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
-[1586973975.760][SEVERE]: Timed out receiving message from renderer: 0.100
-[1586973992.164][SEVERE]: Timed out receiving message from renderer: 0.100
-[1586973992.267][SEVERE]: Timed out receiving message from renderer: 0.100
-[1586973992.370][SEVERE]: Timed out receiving message from renderer: 0.100
-[1586973992.472][SEVERE]: Timed out receiving message from renderer: 0.100
-[1586973992.575][SEVERE]: Timed out receiving message from renderer: 0.100
-[1586973992.676][SEVERE]: Timed out receiving message from renderer: 0.100
-[1586973992.777][SEVERE]: Timed out receiving message from renderer: 0.100
-[1586973992.879][SEVERE]: Timed out receiving message from renderer: 0.100
+Starting ChromeDriver 81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}) on port 10274
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+Apr 15, 2020 5:34:16 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[1586986457.335][SEVERE]: Timed out receiving message from renderer: 0.100
 ]]></system-err>
+  </testcase>
+  <testcase name="getScreenshot" classname="com.fnoor.FundraisingTest.IATS" time="3.832">
+    <failure message="chrome not reachable&#10;  (Session info: chrome=81.0.4044.92)&#10;Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;&#10;System info: host: &apos;Ievgeniias-MBP.fios-router.home&apos;, ip: &apos;fe80:0:0:0:c90:c277:a4f7:2e65%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.6&apos;, java.version: &apos;1.8.0_221&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.Kgg5cZ}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63689}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]&#10;Session ID: e0a4aa7a9d4ceecd0dcbb3152bf9fee7" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+chrome not reachable
+  (Session info: chrome=81.0.4044.92)
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Ievgeniias-MBP.fios-router.home', ip: 'fe80:0:0:0:c90:c277:a4f7:2e65%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.Kgg5cZ}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63689}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]
+Session ID: e0a4aa7a9d4ceecd0dcbb3152bf9fee7
+	at com.fnoor.FundraisingTest.IATS.getScreenshot(IATS.java:283)
+</failure>
+  </testcase>
+  <testcase name="getScreenshot" classname="com.fnoor.FundraisingTest.IATS" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="getScreenshot" classname="com.fnoor.FundraisingTest.IATS" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="getScreenshot" classname="com.fnoor.FundraisingTest.IATS" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="IATSACHRecurring" classname="com.fnoor.FundraisingTest.IATS" time="0">
+    <skipped message="chrome not reachable&#10;  (Session info: chrome=81.0.4044.92)&#10;Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;&#10;System info: host: &apos;Ievgeniias-MBP.fios-router.home&apos;, ip: &apos;fe80:0:0:0:c90:c277:a4f7:2e65%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.6&apos;, java.version: &apos;1.8.0_221&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.Kgg5cZ}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63689}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]&#10;Session ID: e0a4aa7a9d4ceecd0dcbb3152bf9fee7"/>
+  </testcase>
+  <testcase name="IATSRecurring" classname="com.fnoor.FundraisingTest.IATS" time="0">
+    <skipped message="chrome not reachable&#10;  (Session info: chrome=81.0.4044.92)&#10;Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;&#10;System info: host: &apos;Ievgeniias-MBP.fios-router.home&apos;, ip: &apos;fe80:0:0:0:c90:c277:a4f7:2e65%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.6&apos;, java.version: &apos;1.8.0_221&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.Kgg5cZ}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63689}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]&#10;Session ID: e0a4aa7a9d4ceecd0dcbb3152bf9fee7"/>
+  </testcase>
+  <testcase name="iatsSingle" classname="com.fnoor.FundraisingTest.IATS" time="0">
+    <skipped message="chrome not reachable&#10;  (Session info: chrome=81.0.4044.92)&#10;Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;&#10;System info: host: &apos;Ievgeniias-MBP.fios-router.home&apos;, ip: &apos;fe80:0:0:0:c90:c277:a4f7:2e65%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.6&apos;, java.version: &apos;1.8.0_221&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.Kgg5cZ}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63689}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]&#10;Session ID: e0a4aa7a9d4ceecd0dcbb3152bf9fee7"/>
+  </testcase>
+  <testcase name="payflowProPayViaPaypal" classname="com.fnoor.FundraisingTest.PAYFLOW" time="0.081">
+    <failure message="chrome not reachable&#10;  (Session info: chrome=81.0.4044.92)&#10;Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;&#10;System info: host: &apos;Ievgeniias-MBP.fios-router.home&apos;, ip: &apos;fe80:0:0:0:c90:c277:a4f7:2e65%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.6&apos;, java.version: &apos;1.8.0_221&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.0OZx8C}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63701}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]&#10;Session ID: e2d85c46e8fdabb84308eddaf5e981f4" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+chrome not reachable
+  (Session info: chrome=81.0.4044.92)
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Ievgeniias-MBP.fios-router.home', ip: 'fe80:0:0:0:c90:c277:a4f7:2e65%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.0OZx8C}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63701}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]
+Session ID: e2d85c46e8fdabb84308eddaf5e981f4
+	at com.fnoor.FundraisingTest.PAYFLOW.payflowProPayViaPaypal(PAYFLOW.java:161)
+</failure>
+    <system-out><![CDATA[RESPONSE as String: {"expires":3600000,"ens-auth-token":"25b36413-76fe-4925-bc2e-4a09635976d3"}
+ens-auth-token: 25b36413-76fe-4925-bc2e-4a09635976d3
+]]></system-out>
+  </testcase>
+  <testcase name="payflowProRecurring" classname="com.fnoor.FundraisingTest.PAYFLOW" time="0.094">
+    <failure message="chrome not reachable&#10;  (Session info: chrome=81.0.4044.92)&#10;Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;&#10;System info: host: &apos;Ievgeniias-MBP.fios-router.home&apos;, ip: &apos;fe80:0:0:0:c90:c277:a4f7:2e65%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.6&apos;, java.version: &apos;1.8.0_221&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.0OZx8C}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63701}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]&#10;Session ID: e2d85c46e8fdabb84308eddaf5e981f4" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+chrome not reachable
+  (Session info: chrome=81.0.4044.92)
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Ievgeniias-MBP.fios-router.home', ip: 'fe80:0:0:0:c90:c277:a4f7:2e65%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.0OZx8C}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63701}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]
+Session ID: e2d85c46e8fdabb84308eddaf5e981f4
+	at com.fnoor.FundraisingTest.PAYFLOW.payflowProRecurring(PAYFLOW.java:105)
+</failure>
+    <system-out><![CDATA[RESPONSE as String: {"expires":3600000,"ens-auth-token":"25b36413-76fe-4925-bc2e-4a09635976d3"}
+ens-auth-token: 25b36413-76fe-4925-bc2e-4a09635976d3
+]]></system-out>
+  </testcase>
+  <testcase name="payflowProSingle" classname="com.fnoor.FundraisingTest.PAYFLOW" time="0.084">
+    <failure message="chrome not reachable&#10;  (Session info: chrome=81.0.4044.92)&#10;Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;&#10;System info: host: &apos;Ievgeniias-MBP.fios-router.home&apos;, ip: &apos;fe80:0:0:0:c90:c277:a4f7:2e65%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.6&apos;, java.version: &apos;1.8.0_221&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.0OZx8C}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63701}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]&#10;Session ID: e2d85c46e8fdabb84308eddaf5e981f4" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+chrome not reachable
+  (Session info: chrome=81.0.4044.92)
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Ievgeniias-MBP.fios-router.home', ip: 'fe80:0:0:0:c90:c277:a4f7:2e65%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}), userDataDir=/var/folders/wf/01j5zpjj45dgk1n5rbf0njrm0000gn/T/.com.google.Chrome.0OZx8C}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:63701}, acceptInsecureCerts=false, browserVersion=81.0.4044.92, browserName=chrome, javascriptEnabled=true, platformName=mac os x, setWindowRect=true, webauthn:virtualAuthenticators=true}]
+Session ID: e2d85c46e8fdabb84308eddaf5e981f4
+	at com.fnoor.FundraisingTest.PAYFLOW.payflowProSingle(PAYFLOW.java:48)
+</failure>
+    <system-out><![CDATA[RESPONSE as String: {"expires":3600000,"ens-auth-token":"25b36413-76fe-4925-bc2e-4a09635976d3"}
+ens-auth-token: 25b36413-76fe-4925-bc2e-4a09635976d3
+]]></system-out>
   </testcase>
 </testsuite>
