@@ -46,12 +46,14 @@ public class IATS {
 
         driver.get("https://politicalnetworks.com/page/841/donate/1?mode=DEMO");
         fields.waitForPageLoad();
-        //Thread.sleep(4000);
+
         List<WebElement> fieldsPage = driver.findElements(By.tagName("select"));
         for (WebElement iframeT : fieldsPage) {
             System.out.println("Id " + iframeT);
             System.out.println("Id1 " + iframeT.getAttribute("id"));
             System.out.println("Id2 " + iframeT.getAttribute("name"));}
+        Thread.sleep(4000);
+        System.out.println("Elelments: ");
         fields.selectDonationAmt("15");
         fields.selectTitle("Ms");
         fields.setFirstname("Unit");
