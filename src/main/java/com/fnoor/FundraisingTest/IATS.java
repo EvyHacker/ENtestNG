@@ -47,15 +47,22 @@ public class IATS {
         driver.get("https://politicalnetworks.com/page/13152/donate/1");
         fields.waitForPageLoad();
 
-        List<WebElement> fieldsPage = driver.findElements(By.tagName("div"));
+        List<WebElement> fieldsPage = driver.findElements(By.tagName("select"));
         for (WebElement iframeT : fieldsPage) {
             System.out.println("Id " + iframeT);
             System.out.println("Id1 " + iframeT.getAttribute("id"));
             System.out.println("Id2 " + iframeT.getAttribute("name"));}
         Thread.sleep(4000);
         System.out.println("Elelments: ");
+        List<WebElement> labelsPage = driver.findElements(By.tagName("div"));
+        for (WebElement iframeT : labelsPage) {
+            System.out.println("labelsPage " + iframeT);
+            System.out.println("labelsPage2 " + iframeT.getAttribute("value"));
+            System.out.println("labelsPage3 " + iframeT.getAttribute("text"));}
         //fields.selectDonationAmt("15");
         //fields.selectTitle("Ms");
+        Assert.assertTrue("Urls are not the 1st page", driver.getCurrentUrl()
+                .equals("https://politicalnetworks.com/page/13152/donate/1"));
         fields.setFirstname("Unit");
         fields.setLastname("Tester");
 //		Call the createEmail function
