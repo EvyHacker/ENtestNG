@@ -47,7 +47,7 @@ public class IATS {
         driver.get("https://politicalnetworks.com/page/13152/donate/1");
         fields.waitForPageLoad();
 
-        List<WebElement> fieldsPage = driver.findElements(By.tagName("select"));
+        List<WebElement> fieldsPage = driver.findElements(By.tagName("div"));
         for (WebElement iframeT : fieldsPage) {
             System.out.println("Id " + iframeT);
             System.out.println("Id1 " + iframeT.getAttribute("id"));
