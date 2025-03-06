@@ -2,7 +2,7 @@ package com.fnoor;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fnoor.FundraisingTest.IATS;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -10,51 +10,27 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.JSONArray;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.*;
-import org.testng.reporters.XMLReporter;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import static com.fnoor.PageFields.*;
+import static com.fnoor.SFpageFields.*;
 
 public class FundraisingPageDriver {
 
-    private static String FUNDRAISING_TEST;
-    //private static WebDriver driver;
-   // public static String testId;
-    private static String env;
-    static PageFields fields = PageFactory.initElements(driver, PageFields.class);
-
-
-//    @BeforeClass(alwaysRun = true)
-//    @Parameters("driver")
-//    public static void setUp() {
-////        if(args.length != 3) {
-////            System.out.println("ERROR: <environment> <webdriver> <TEST_CASE>");
-////            System.exit(0);
-////        }
-//        // String env = args[0];
-////        String webdrive = args[1];
-////        String testCase = args[2];
-////        String webDriverProperty = String.format("webdrivers/%s/%s",  "/Users/ievgeniiagaidarenko/EngagingNetworks/Automation/ENSeleniumJenkins/webdrivers/linux/chromedriver");
-////        if (env.equals("win")) {
-////            webDriverProperty = webDriverProperty + ".exe";
-////        }
-//        System.setProperty("webdriver.chrome.driver",
-//                "/Users/ievgeniiagaidarenko/EngagingNetworks/Automation/ENSeleniumJenkins/webdrivers/linux/chromedriver");
-//        driver = new ChromeDriver();
-//
-//
-//    }
+    static WebDriver driver;
 
     @BeforeClass(alwaysRun = true)
     public static void ensAuthTest() {
@@ -63,8 +39,7 @@ public class FundraisingPageDriver {
         try {
 
             // Test Account 09
-            String body = "dae1e490-ddce-4be9-9225-8910b090d674";
-            // Evy's Test Account
+            String body = "6c9a345f-f836-4981-b6c0-08ffed29d491";
 
             InputStream is = new ByteArrayInputStream(body.getBytes());
             InputStreamEntity inputStreamEntity;
@@ -123,9 +98,42 @@ public class FundraisingPageDriver {
         }
     }
 
+    //Test_acc10
+    @BeforeClass(alwaysRun = true)
+    public static void ensAuthTestEvent() {
+        HttpPost post = new HttpPost(SERVICE_URL + "/authenticate");
+        post.setHeader("Content-Type", "application/json");
+        try {
+
+            String body = "53c64d56-aacf-4661-9fe1-5c774c343579";
+            InputStream is = new ByteArrayInputStream(body.getBytes());
+            InputStreamEntity inputStreamEntity;
+            inputStreamEntity = new InputStreamEntity(is, body.getBytes().length);
+            post.setEntity(inputStreamEntity);
+
+            HttpResponse response = HttpClientBuilder.create().build().execute(post);
+            int status = response.getStatusLine().getStatusCode();
+            if (status != HTTP_STATUS_OK) {
+                throw new IOException("Unable to authenticate. Received invalid http status=" + status);
+            }
+
+            String jsonResponse = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
+            System.out.println("RESPONSE as String: " + jsonResponse);
+
+            // use jackson library to pull the string into json objects
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode node = mapper.readTree(jsonResponse);
+            ens_auth_token = node.get("ens-auth-token").asText();
+            System.out.println("ens-auth-token: " + ens_auth_token);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
     @AfterTest(alwaysRun = true)
     public static void getSupporterByEmail(String testId, PageFields fields) throws IOException, InterruptedException {
-        System.out.println("In after class");
+        System.out.println("In after class getSupporterByEmail:");
         HttpClient client = HttpClientBuilder.create().build();
         supporterEmail = fields.createEmail(testId);
 
@@ -148,14 +156,211 @@ public class FundraisingPageDriver {
         supporterEmail = node.get("Email Address").asText();
         System.out.println("supporterId: " + supporterId);
 
-        System.out.println("status: " + status);
+        System.out.println("Status getSupporterByEmail: " + status);
         System.out.println("SupporterEmail: " + supporterEmail);
     }
 
     @AfterTest(alwaysRun = true)
-    public void tearDown() {
-        driver.quit();
+    public static void getSupporterByEmailOther(String testId, PageFields fields) throws IOException, InterruptedException {
+        System.out.println("In after class getSupporterByEmail:");
+        HttpClient client = HttpClientBuilder.create().build();
+        supporterEmail = fields.createEmailOther(testId);
+
+        HttpGet get = new HttpGet(SERVICE_URL + "/supporter?email=" + supporterEmail);
+        get.setHeader("Content-Type", "application/json");
+        get.setHeader("ens-auth-token", ens_auth_token);
+
+        HttpResponse response = client.execute(get);
+        int status = response.getStatusLine().getStatusCode();
+        if (status != HTTP_STATUS_OK) {
+            throw new IOException("Unable to authenticate. Received invalid http status=" + status);
+        }
+        String jsonResponse = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
+        System.out.println("RESPONSE as String(getSupporterByEmail): " + jsonResponse);
+
+        // use jackson library to pull the string into json objects
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode node = mapper.readTree(jsonResponse);
+        supporterId = node.get("supporterId").asText();
+        supporterEmail = node.get("Email Address").asText();
+        System.out.println("supporterId: " + supporterId);
+
+        System.out.println("Status getSupporterByEmail: " + status);
+        System.out.println("SupporterEmail: " + supporterEmail);
     }
+
+    @AfterTest(alwaysRun = true)
+    public static void getSupporterByEmailSeconds(String testId, PageFields fields) throws IOException, InterruptedException {
+        System.out.println("In after class getSupporterByEmail:");
+        HttpClient client = HttpClientBuilder.create().build();
+        supporterEmail = fields.createEmailSeconds(testId);
+
+        HttpGet get = new HttpGet(SERVICE_URL + "/supporter?email=" + supporterEmail);
+        get.setHeader("Content-Type", "application/json");
+        get.setHeader("ens-auth-token", ens_auth_token);
+
+        HttpResponse response = client.execute(get);
+        int status = response.getStatusLine().getStatusCode();
+        if (status != HTTP_STATUS_OK) {
+            throw new IOException("Unable to authenticate. Received invalid http status=" + status);
+        }
+        String jsonResponse = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
+        System.out.println("RESPONSE as String(getSupporterByEmail): " + jsonResponse);
+
+        // use jackson library to pull the string into json objects
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode node = mapper.readTree(jsonResponse);
+        supporterId = node.get("supporterId").asText();
+        supporterEmail = node.get("Email Address").asText();
+        System.out.println("supporterId: " + supporterId);
+
+        System.out.println("Status getSupporterByEmail: " + status);
+        System.out.println("SupporterEmail: " + supporterEmail);
+    }
+
+    @AfterTest(alwaysRun = true)
+    public static void getSupporterByEmailIATSChecking(String testId, PageFields fields) throws IOException, InterruptedException {
+        System.out.println("In after class getSupporterByEmail:");
+        HttpClient client = HttpClientBuilder.create().build();
+        supporterEmail = fields.createEmail(testId);
+
+        HttpGet get = new HttpGet(SERVICE_URL + "/supporter?email=" + supporterEmail);
+        get.setHeader("Content-Type", "application/json");
+        get.setHeader("ens-auth-token", ens_auth_token);
+
+        HttpResponse response = client.execute(get);
+        int status = response.getStatusLine().getStatusCode();
+        if (status != HTTP_STATUS_OK) {
+            throw new IOException("Unable to authenticate. Received invalid http status=" + status);
+        }
+        String jsonResponse = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
+        System.out.println("RESPONSE as String(getSupporterByEmail): " + jsonResponse);
+
+        Assert.assertTrue("Bank Type is incorrect, not present", jsonResponse.contains("CHECKING"));
+        // use jackson library to pull the string into json objects
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode node = mapper.readTree(jsonResponse);
+        supporterId = node.get("supporterId").asText();
+        supporterEmail = node.get("Email Address").asText();
+        System.out.println("supporterId: " + supporterId);
+
+        System.out.println("Status getSupporterByEmail: " + status);
+        System.out.println("SupporterEmail: " + supporterEmail);
+    }
+
+    @AfterTest(alwaysRun = true)
+    public static void getSupporterByEmailIATSSaving(String testId, PageFields fields) throws IOException, InterruptedException {
+        System.out.println("In after class getSupporterByEmail:");
+        HttpClient client = HttpClientBuilder.create().build();
+        supporterEmail = fields.createEmail(testId);
+
+        HttpGet get = new HttpGet(SERVICE_URL + "/supporter?email=" + supporterEmail);
+        get.setHeader("Content-Type", "application/json");
+        get.setHeader("ens-auth-token", ens_auth_token);
+
+        HttpResponse response = client.execute(get);
+        int status = response.getStatusLine().getStatusCode();
+        if (status != HTTP_STATUS_OK) {
+            throw new IOException("Unable to authenticate. Received invalid http status=" + status);
+        }
+        String jsonResponse = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
+        System.out.println("RESPONSE as String(getSupporterByEmail): " + jsonResponse);
+
+        Assert.assertTrue("Bank Type is incorrect, not present", jsonResponse.contains("SAVING"));
+        // use jackson library to pull the string into json objects
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode node = mapper.readTree(jsonResponse);
+        supporterId = node.get("supporterId").asText();
+        supporterEmail = node.get("Email Address").asText();
+        System.out.println("supporterId: " + supporterId);
+
+        System.out.println("Status getSupporterByEmail: " + status);
+        System.out.println("SupporterEmail: " + supporterEmail);
+    }
+
+    @AfterTest(alwaysRun = true)
+    public static void getSupporterByEmailETT(String testId, PageFields fields) throws IOException {
+
+        HttpClient client = HttpClientBuilder.create().build();
+        supporterEmail = fields.createETTEmail(testId);
+        HttpGet get = new HttpGet(SERVICE_URL_ETT + supporterEmail);
+
+        HttpResponse response = client.execute(get);
+        int status = response.getStatusLine().getStatusCode();
+        if (status != HTTP_STATUS_OK) {
+            throw new IOException("Unable to authenticate. Received invalid http status=" + status);
+        }
+        String jsonResponse = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
+        System.out.println("RESPONSE as String(getSupporterByEmailETT): " + jsonResponse);
+        System.out.println("SupporterEmail: " + supporterEmail);
+    }
+
+    @AfterTest(alwaysRun = true)
+    public static void getSupporterByEmailRSM(String testId, PageFields fields) throws IOException, InterruptedException {
+        System.out.println("In after class");
+        HttpClient client = HttpClientBuilder.create().build();
+        supporterEmail = fields.createRSMemail(testId);
+
+        HttpGet get = new HttpGet(SERVICE_URL + "/supporter?email=" + supporterEmail);
+        get.setHeader("Content-Type", "application/json");
+        get.setHeader("ens-auth-token", ens_auth_token);
+
+        HttpResponse response = client.execute(get);
+        int status = response.getStatusLine().getStatusCode();
+        if (status != HTTP_STATUS_OK) {
+            throw new IOException("Unable to authenticate. Received invalid http status=" + status);
+        }
+        String jsonResponse = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
+        System.out.println("RESPONSE as String(getSupporterByEmailRSM): " + jsonResponse);
+
+        // use jackson library to pull the string into json objects
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode node = mapper.readTree(jsonResponse);
+        supporterId = node.get("supporterId").asText();
+        supporterEmail = node.get("Email Address").asText();
+        System.out.println("supporterId: " + supporterId);
+
+        System.out.println("status: " + status);
+        System.out.println("SupporterEmail: " + supporterEmail);
+
+    }
+
+    @AfterTest(alwaysRun = true)
+    public static void getQuestionResponseByID(String testId, PageFields fields) throws IOException, InterruptedException {
+        System.out.println("In after class getQuetionResponseByID:");
+        HttpClient client = HttpClientBuilder.create().build();
+       // supporterEmail = fields.createEmail(testId);
+
+        HttpGet get = new HttpGet(SERVICE_URL + "/supporter/" + supporterId + "?includeQuestions=true");
+        get.setHeader("Content-Type", "application/json");
+        get.setHeader("ens-auth-token", ens_auth_token);
+
+        HttpResponse response = client.execute(get);
+        int status = response.getStatusLine().getStatusCode();
+        if (status != HTTP_STATUS_OK) {
+            throw new IOException("Unable to authenticate. Received invalid http status=" + status);
+        }
+        String jsonResponse = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
+        System.out.println("RESPONSE as String(getSupporterByEmail): " + jsonResponse);
+
+        // use jackson library to pull the string into json objects
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode node = mapper.readTree(jsonResponse);
+        ArrayNode JSONResponseBody = mapper.createArrayNode();
+                //new JSONArray(response.body().asString());
+        supporterId = node.get("supporterId").asText();
+        supporterEmail = node.get("Email Address").asText();
+        //questions = JSONResponseBody.get("questions").toString();
+        System.out.println("question : " + questions);
+       // questions = node.get("Email Address").asText();
+        how_did_you_hear_about_us = node.get("id:1076").asText();
+        System.out.println("question response: " + how_did_you_hear_about_us);
+        System.out.println("supporterId: " + supporterId);
+
+        System.out.println("Status getSupporterByEmail: " + status);
+        System.out.println("SupporterEmail: " + supporterEmail);
+    }
+
 
     @AfterTest(alwaysRun = true)
     public static void getSupporterById(String testId, PageFields fields) throws IOException, InterruptedException {
@@ -182,69 +387,97 @@ public class FundraisingPageDriver {
 
     }
 
-    public WebDriver driverSettings() {
+    @AfterTest(alwaysRun = true)
+    public static void getSupporterByIdOther(String testId, PageFields fields) throws IOException, InterruptedException {
+        System.out.println("In after class getSupporterById:");
+        HttpClient client = HttpClientBuilder.create().build();
+        supporterEmail = fields.createEmailOther(testId);
+        supporterTaxId = fields.getSupporterTaxID();
 
-//        String webDriverProperty = String.format("webdrivers/%s/%s", env, driver);
-//        if (env.equals("win")) {
-//            System.setProperty("webdriver.gecko.driver", webDriverProperty);
-//            //System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
-//            driver = new FirefoxDriver();
-//        } else {
+        HttpGet get = new HttpGet(SERVICE_URL + "/supporter/" + supporterId + "/transactions/" + supporterTaxId);
 
-        System.setProperty("webdriver.chrome.driver", "webdrivers/linux/chromedriver");
-        DesiredCapabilities capabilitiesChrome = DesiredCapabilities.chrome();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("disable-gpu");
-        options.addArguments("--always-authorize-plugins");
-        options.addArguments("--dns-prefetch-disable");
-        options.addArguments("--load-extension=\"+s+\"/stopper");
-        options.addArguments("--disable-features=VizDisplayCompositor");
-        options.addArguments("pageLoadStrategy=normal");
-        options.addArguments("--headless");
-        capabilitiesChrome.setCapability(ChromeOptions.CAPABILITY, options);
-        System.out.println("Im here");
-        driver = new ChromeDriver(options);
-        //driver = new FirefoxDriver();
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        System.out.println("url: " + get);
+        get.setHeader("Content-Type", "application/json");
+        get.setHeader("ens-auth-token", ens_auth_token);
 
-        return driver;
+        HttpResponse response = client.execute(get);
+        int status = response.getStatusLine().getStatusCode();
+        if (status != HTTP_STATUS_OK) {
+            throw new IOException("Unable to authenticate. Received invalid http status=" + status);
+        }
+        String jsonResponse = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
+        System.out.println("RESPONSE as String(getSupporterById): " + jsonResponse);
+
+        System.out.println("Status getSupporterById: " + status);
+
     }
 
+    @AfterTest(alwaysRun = true)
+    public static void getSupporterByIdSeconds(String testId, PageFields fields) throws IOException, InterruptedException {
+        System.out.println("In after class getSupporterById:");
+        HttpClient client = HttpClientBuilder.create().build();
+        supporterEmail = fields.createEmailSeconds(testId);
+        supporterTaxId = fields.getSupporterTaxID();
+
+        HttpGet get = new HttpGet(SERVICE_BASEURL + "/supporter/" + supporterId + "/transactions/" + supporterTaxId);
+
+        System.out.println("url: " + get);
+        get.setHeader("Content-Type", "application/json");
+        get.setHeader("ens-auth-token", ens_auth_token);
+
+        HttpResponse response = client.execute(get);
+        int status = response.getStatusLine().getStatusCode();
+        if (status != HTTP_STATUS_OK) {
+            throw new IOException("Unable to authenticate. Received invalid http status=" + status);
+        }
+        String jsonResponse = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
+        System.out.println("RESPONSE as String(getSupporterById): " + jsonResponse);
+
+        System.out.println("Status getSupporterById: " + status);
+
+    }
+
+    @Parameters({"browser"})
+    @BeforeClass
+    public static WebDriver createInstance(String browser) {
+
+        //WebDriver driver;
+
+            if (browser.equalsIgnoreCase("chrome")) {
+
+                System.setProperty("webdriver.chrome.driver", "webdrivers/linux/chromedriver");
+                ChromeOptions options = new ChromeOptions();
+                //options.setBinary("/Users/evyens/ENS/ENSelenium/webdrivers/linux/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing");
+               // options.addArguments("start-maximized");
+                options.addArguments("disable-infobars");
+                options.addArguments("--disable-web-security");
+                options.addArguments("--disable-cache");
+                //options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+               // options.setExperimentalOption("useAutomationExtension", false);
+                options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+                Map<String, Object> prefs = new HashMap<String, Object>();
+                prefs.put("credentials_enable_service", false);
+                prefs.put("profile.password_manager_enabled", false);
+                prefs.put("autofill.profile_enabled", false);
+
+                options.setExperimentalOption("prefs", prefs);
+
+                driver = new ChromeDriver(options);
+                driver.manage().deleteAllCookies();
+                driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+                driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+                //return driver;
+            }
+            if (browser.equalsIgnoreCase("firefox")) {
+                System.setProperty("webdriver.gecko.driver", "webdrivers/win/geckodriver");
+                driver = new FirefoxDriver();
+                //return driver;
+            }
+            if (browser.equalsIgnoreCase("internet")) {
+                driver = new SafariDriver();
+               // return driver;
+            }
+            return driver;
+        }
+
 }
-
-//    public static void main(String[] args) throws InterruptedException, IOException {
-//
-//        String env = args[0];
-//        String webdrive = args[1];
-//        String testCase = args[2];
-//        String webDriverProperty = String.format("webdrivers/%s/%s", env, webdrive);
-//        if (env.equals("win")) {
-//            System.setProperty("webdriver.gecko.driver", webDriverProperty);
-//            //System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
-//            driver = new FirefoxDriver();
-//        } else {
-//            System.setProperty("webdriver.chrome.driver", webDriverProperty);
-//            DesiredCapabilities capabilitiesChrome = DesiredCapabilities.chrome();
-//            ChromeOptions options = new ChromeOptions();
-//            options.addArguments("disable-gpu");
-//            options.addArguments("--always-authorize-plugins");
-//            options.addArguments("--dns-prefetch-disable");
-//            options.addArguments("--load-extension=\"+s+\"/stopper");
-//            options.addArguments("--disable-features=VizDisplayCompositor");
-//            options.addArguments("pageLoadStrategy=normal");
-//            options.addArguments("--headless");
-//            capabilitiesChrome.setCapability(ChromeOptions.CAPABILITY, options);
-//            System.out.println("Im here");
-//            driver = new ChromeDriver(options);
-//            driver.manage().deleteAllCookies();
-//            driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-//            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//            driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-//
-//        }
-
-
-
